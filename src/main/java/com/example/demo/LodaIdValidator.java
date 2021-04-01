@@ -1,21 +1,17 @@
 package com.example.demo;
 
+import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
+import org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl;
+import org.hibernate.validator.internal.util.annotation.ConstraintAnnotationDescriptor;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class LodaIdValidator implements ConstraintValidator<LodaId, String> {
-    private static final String LODA_PREFIX = "loda://";
-
-    /**
-     * Kiểm tra tính hợp lệ của trường được đánh dấu bởi @LodaId
-     * @param s
-     * @param constraintValidatorContext
-     * @return
-     */
+public class LodaIdValidator implements ConstraintValidator<LodaId, Object> {
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        if (s == null || s.isEmpty()) return false;
-
-        return s.startsWith(LODA_PREFIX);
+    public boolean isValid(Object value, ConstraintValidatorContext context) {
+        ConstraintAnnotationDescriptor descriptor = ((ConstraintDescriptorImpl) ((ConstraintValidatorContextImpl) context).getConstraintDescriptor()).getAnnotationDescriptor();
+        int maxInt = (int) descriptor.getAttribute("maxInt", Number.class);
+        return maxInt > (Integer) value;
     }
 }
