@@ -4,5 +4,5 @@ Static 1_3
 
 Da sua boi test_1_2
 
-Đã sửa static 1_3
+Đã sửa static 1_3 V2
 
