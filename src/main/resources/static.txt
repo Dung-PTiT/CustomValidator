@@ -3,3 +3,6 @@ Static 1_2
 Static 1_3
 
 Da sua boi test_1_2
+
+Đã sửa static 1_3
+
