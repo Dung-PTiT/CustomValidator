@@ -2,4 +2,4 @@ Static 1_1
 Static 1_2
 Static 1_3
 
-Đã sửa static 1_3
+Đã sửa static 1_3 V1
